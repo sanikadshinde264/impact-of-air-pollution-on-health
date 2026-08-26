@@ -1,95 +1,150 @@
-# Air Pollution & Health Impact Prediction
+# 🌍 Impact Of Air Pollution On Health
 
-## Description
+Predicts the health impact score based on air quality, environmental conditions, and health-related factors. Built with Streamlit and a scikit-learn Linear Regression pipeline.
 
-This project predicts a **Health Impact Score** from air quality and
-environmental data using a pre-trained machine-learning model. It was
-originally built as a Flask web application and has been converted into a
-single-file **Streamlit** application for a simpler, more modern interface.
+## 📌 Overview
 
-The model itself is unchanged — this conversion only replaces the
-Flask/HTML/Jinja interface layer with Streamlit. No retraining, no changes
-to feature names, order, or the underlying algorithm.
+This project uses a Machine Learning regression model to predict the potential **Health Impact Score** associated with air pollution and environmental conditions. Users can provide air-quality and health-related parameters through an interactive Streamlit web application and receive a predicted health impact score.
 
-## Technologies
+## ❓ Problem Statement
 
-- Python
-- Streamlit
-- Pandas
-- NumPy
-- Scikit-learn
-- Machine Learning (Linear Regression pipeline)
+Air pollution has a significant impact on human health, and its effects can vary depending on pollutant levels, environmental conditions, and health-related factors. Estimating the potential health impact from multiple parameters can be difficult manually.
 
-## Input Features
+This project builds a data-driven Machine Learning model that learns from historical air-quality and health-impact data to provide a quick and consistent prediction of the **Health Impact Score**.
 
-The model expects exactly these 13 features, in this order:
+## ✨ Features
 
-1. `AQI`
-2. `PM10`
-3. `PM2_5`
-4. `NO2`
-5. `SO2`
-6. `O3`
-7. `temperature`
-8. `humidity`
-9. `wind_speed`
-10. `respiratory_cases`
-11. `cardiovascular_cases`
-12. `hospital_admissions`
-13. `health_impact_class`
+* Enter air-quality and environmental parameters through an interactive web interface
+* Predict Health Impact Score using a trained Linear Regression model
+* Uses a pre-trained scikit-learn pipeline for prediction
+* Dataset-based input values for consistent predictions
+* Simple and user-friendly Streamlit interface
+* Fast prediction results without retraining the model
 
-Dropdown options for each field are populated dynamically from the unique
-values found in `cleaned_air_quality_health_impact_data.csv`.
+## 📊 Dataset
 
-## How to Run
+* **File:** `cleaned_air_quality_health_impact_data.csv`
+* **Target:** Health Impact Score
+* **Format:** CSV
+* **Type:** Cleaned air-quality and health-impact dataset
 
-```bash
-pip install -r requirements.txt
-streamlit run app.py
+### Input Features
+
+| Feature                | Description                    |
+| ---------------------- | ------------------------------ |
+| `AQI`                  | Air Quality Index              |
+| `PM10`                 | Particulate Matter 10          |
+| `PM2.5`                | Fine Particulate Matter        |
+| `NO2`                  | Nitrogen Dioxide               |
+| `SO2`                  | Sulfur Dioxide                 |
+| `O3`                   | Ozone                          |
+| `Temperature`          | Environmental temperature      |
+| `Humidity`             | Relative humidity              |
+| `Wind Speed`           | Wind speed                     |
+| `Respiratory Cases`    | Number of respiratory cases    |
+| `Cardiovascular Cases` | Number of cardiovascular cases |
+| `Hospital Admissions`  | Number of hospital admissions  |
+| `Health Impact Class`  | Health impact classification   |
+
+The model predicts:
+
+```text
+Health Impact Score
 ```
 
-Then open the local URL Streamlit prints in your terminal (typically
-`http://localhost:8501`).
+## 🛠️ Tools & Technologies
 
-## Model
+* **Python 3** — programming language
+* **Streamlit** — web application and user interface
+* **pandas / numpy** — data handling and processing
+* **scikit-learn** — Machine Learning and Linear Regression
+* **pickle** — loading the trained Machine Learning model
+* **HTML / Streamlit Components** — application interface
 
-The application loads the existing trained model from
-`air_quality_health_model.pkl` using `pickle`, cached with
-`@st.cache_resource` so it's only loaded once per session. The model is a
-scikit-learn `Pipeline` (a passthrough `ColumnTransformer` followed by
-`LinearRegression`) and is used exactly as originally trained — it is never
-retrained or replaced.
+## ⚙️ Methods / Methodology
 
-The dataset `cleaned_air_quality_health_impact_data.csv` is loaded with
-`@st.cache_data` and used only to populate the dropdown selectors on the
-prediction page; it is never modified.
+1. Load the cleaned air-quality and health-impact dataset (`cleaned_air_quality_health_impact_data.csv`)
+2. Prepare the required environmental and health-related input features
+3. Train a `LinearRegression` Machine Learning model
+4. Build a scikit-learn pipeline for prediction
+5. Save the trained pipeline as `air_quality_health_model.pkl`
+6. Load the trained model in the Streamlit application (`app.py`)
+7. Accept user input through the web interface
+8. Use `model.predict()` to generate the predicted Health Impact Score
 
-## Validation
+## 🗂️ Project Directory Structure
 
-The app was verified against the original Flask app's behavior using this
-input combination:
+```text
+Impact-Of-Air-Pollution-On-Health/
+├── app.py                                  # Streamlit application
+├── cleaned_air_quality_health_impact_data.csv  # Dataset
+├── air_quality_health_model.pkl            # Trained ML model
+├── requirements.txt                         # Python dependencies
+├── README.md                                # Project documentation
+└── .gitignore                               # Git ignored files
+```
 
-| Parameter | Value |
-|---|---|
-| AQI | 3 |
-| PM10 | 3 |
-| PM2_5 | 2 |
-| NO2 | 3 |
-| SO2 | 2 |
-| O3 | 13 |
-| Temperature | 13 |
-| Humidity | 23 |
-| Wind Speed | 16 |
-| Respiratory Cases | 19 |
-| Cardiovascular Cases | 13 |
-| Hospital Admissions | 6 |
-| Health Impact Class | 2 |
+## 🖥️ Dashboard / Model / Output
 
-Both the original Flask app and this Streamlit app produce a predicted
-Health Impact Score of **≈ 28.42**.
+* **Home / Information page** → provides information about air pollution and its health impact
+* **Prediction section** → allows users to enter/select air-quality and health parameters
+* **Machine Learning model** → processes the provided input values
+* **Result section** → displays the predicted Health Impact Score
 
-## Disclaimer
+## 💡 Key Insights
 
-This is an educational machine-learning project. Predictions are generated
-by a statistical model trained on a sample dataset and **should not be
-considered medical advice or a diagnostic tool**.
+* Higher levels of air pollutants can be associated with increased health risks
+* PM2.5 and PM10 are important indicators of particulate pollution
+* NO₂, SO₂, and O₃ contribute to overall air-quality conditions
+* Environmental factors such as temperature, humidity, and wind speed can influence air pollution conditions
+* Respiratory and cardiovascular health indicators provide additional information about potential health impacts
+* A Machine Learning model can help identify relationships between air-quality conditions and health-impact scores
+* The Linear Regression model provides a simple and interpretable baseline for prediction
+
+## ✅ Results & Conclusion
+
+The Linear Regression pipeline provides a fast and interpretable approach for predicting the **Health Impact Score** from air-quality, environmental, and health-related parameters.
+
+The project demonstrates how Machine Learning can be applied to environmental and healthcare-related data to generate predictive insights through an interactive web application.
+
+The model is intended primarily as an **educational and demonstration project**. Its predictions should not be considered medical diagnoses or professional healthcare advice.
+
+## ▶️ How to Run the Project
+
+```bash
+# 1. Clone the repository
+git clone https://github.com/sanikadshinde264/Impact-Of-Air-Pollution-On-Health.git
+
+# 2. Navigate to the project directory
+cd Impact-Of-Air-Pollution-On-Health
+
+# 3. Install dependencies
+pip install -r requirements.txt
+
+# 4. Run the Streamlit application
+streamlit run app.py
+
+# 5. Open the application
+http://localhost:8501
+```
+
+## 🌐 GitHub Repository
+
+> 🌍 **Repository:** [Impact Of Air Pollution On Health](https://github.com/sanikadshinde264/Impact-Of-Air-Pollution-On-Health)
+
+## 🚀 Future Work
+
+* Try advanced Machine Learning models such as Random Forest and XGBoost
+* Compare multiple regression algorithms
+* Improve model accuracy through hyperparameter tuning
+* Add interactive air-quality visualizations
+* Add real-time AQI data using an external API
+* Add location-based air-quality analysis
+* Add prediction history and downloadable reports
+* Deploy the application using Streamlit Cloud
+* Add model performance metrics such as MAE, MSE, RMSE, and R² score
+
+## 👤 Author and Contact
+
+**Sanika Shinde** <br>
+📧 [sanikadshinde264@gmail.com](mailto:sanikadshinde264@gmail.com) | 🔗 [linkedin.com/in/sanikadshinde264](https://www.linkedin.com/in/sanikadshinde264)
