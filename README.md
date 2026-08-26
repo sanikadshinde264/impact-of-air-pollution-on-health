@@ -61,7 +61,7 @@ Health Impact Score
 * **pickle** — loading the trained Machine Learning model
 * **HTML / Streamlit Components** — application interface
 
-## ⚙️ Methods / Methodology
+## ⚙️ Methodology
 
 1. Load the cleaned air-quality and health-impact dataset (`cleaned_air_quality_health_impact_data.csv`)
 2. Prepare the required environmental and health-related input features
@@ -84,7 +84,7 @@ Impact-Of-Air-Pollution-On-Health/
 └── .gitignore                               # Git ignored files
 ```
 
-## 🖥️ Dashboard / Model / Output
+## 🖥️ Dashboard / Output
 
 * **Home / Information page** → provides information about air pollution and its health impact
 * **Prediction section** → allows users to enter/select air-quality and health parameters
