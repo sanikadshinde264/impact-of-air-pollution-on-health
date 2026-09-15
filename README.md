@@ -113,10 +113,10 @@ The model is intended primarily as an **educational and demonstration project**.
 
 ```bash
 # 1. Clone the repository
-git clone https://github.com/sanikadshinde264/Impact-Of-Air-Pollution-On-Health.git
+git clone https://github.com/sanikadshinde264/impact-of-air-pollution-on-health.git
 
 # 2. Navigate to the project directory
-cd Impact-Of-Air-Pollution-On-Health
+cd impact-of-air-pollution-on-health
 
 # 3. Install dependencies
 pip install -r requirements.txt
