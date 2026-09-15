@@ -128,10 +128,6 @@ streamlit run app.py
 http://localhost:8501
 ```
 
-## 🌐 GitHub Repository
-
-> 🌍 **Repository:** [Impact Of Air Pollution On Health](https://github.com/sanikadshinde264/Impact-Of-Air-Pollution-On-Health)
-
 ## 🚀 Future Work
 
 * Try advanced Machine Learning models such as Random Forest and XGBoost
