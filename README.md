@@ -75,7 +75,7 @@ Health Impact Score
 ## 🗂️ Project Directory Structure
 
 ```text
-Impact-Of-Air-Pollution-On-Health/
+impact-of-air-pollution-on-health/
 ├── app.py                                  # Streamlit application
 ├── cleaned_air_quality_health_impact_data.csv  # Dataset
 ├── air_quality_health_model.pkl            # Trained ML model
